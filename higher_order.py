@@ -17,13 +17,25 @@ def zipWith(fn):
         return results
     return _zipWith
 
+def reduce(fn, start):
+    def _reduce(nums):
+        total = start
+        for n in nums:
+            total =   fn(total, n)
+        return total 
+    return _reduce
 
-def hello():
-    def hi():
-        print("hi ran")
-    def hi2():
-        print("hi2 ran")
-    
-    return hi2
 
-print(hello()())
+
+def neglist(ls):
+    return map(operators.neg)(ls)
+
+
+def addList(ls1, ls2):
+    return map(operators.add)(ls1, ls2)
+
+def sum(ls1, ls2):
+    return map(operators.sum)(ls1, ls2)
+
+def prod(ls):
+    return map(operators.mul, 1.0)(ls)
