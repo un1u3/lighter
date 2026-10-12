@@ -1,11 +1,10 @@
 # Parameter : a small box around a learnable numer 
-
 class Parameter:
-    def __init__(self):
+    def __init__(self, value):
         self.value = value
 
     def __repr__(self):
-        return "Parameter(" + str(self.value) +")"
+        return "Parameter(" + str(self.value) + ")"
 
 
 
@@ -29,20 +28,18 @@ class Module:
         for child in self.children.values():
             child.train()
 
-    def parameter(self):
+    def parameters(self):          # was: def parameter(self)
         result = []
         for parm in self.params.values():
             result.append(parm)
         for child in self.children.values():
             result.extend(child.parameters())
         return result
-
     def named_parameters(self):
         result = []
-        for name, parm in self.params.items():
-            result.append((name, parm))
         for child_name, child in self.children.items():
-            result.append((child_name+ "." + name, parm))
+            for name, parm in child.named_parameters():     
+                result.append((child_name + "." + name, parm))  
         return result
 
     def __setattr__(self, key, val):
