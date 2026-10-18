@@ -4,12 +4,6 @@ class TensorData:
         self.shape = shape
         self.strides = strides or self.strides_from_shape(shape)
 
-    def strides_from_shape(shape):
-        strides = [1] * len(shape)
-        for i in range(len(shape) - 2, -1, -1):
-            strides[i] = strides[i+ 1] * shape[i+ 1]
-        return tuple(strides)
-
     @staticmethod
     def strides_from_shape(shape):
         strides = [1] * len(shape)
@@ -21,7 +15,7 @@ class TensorData:
         postion = 0 
         for ind, stride in zip(index, self.strides):
             postion += ind * stride
-            return postion 
+        return postion 
 
     def get(self, index):
         return self._storage[self.index_to_position(index)]
