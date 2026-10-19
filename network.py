@@ -71,12 +71,12 @@ print("accuracy:", correct / len(points))
 
 
 # pytorch 
-import torch
-import torch.nn as nn
+# import torch
+# import torch.nn as nn
 
-net = nn.Sequential(
-    nn.Linear(2, 4),   # layer1: 4 neurons
-    nn.ReLU(),         # the bend
-    nn.Linear(4, 1),   # layer2: combine
-)
-opt = torch.optim.SGD(net.parameters(), lr=0.5)
+# net = nn.Sequential(
+#     nn.Linear(2, 4),   # layer1: 4 neurons
+#     nn.ReLU(),         # the bend
+#     nn.Linear(4, 1),   # layer2: combine
+# )
+# opt = torch.optim.SGD(net.parameters(), lr=0.5)
