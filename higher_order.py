@@ -32,10 +32,10 @@ def neglist(ls):
 
 
 def addList(ls1, ls2):
-    return map(operators.add)(ls1, ls2)
+    return zipWith(operators.add)(ls1, ls2)
 
-def sum(ls1, ls2):
-    return map(operators.sum)(ls1, ls2)
+def sum(ls):
+    return reduce(operators.add, 0.0)(ls)
 
 def prod(ls):
-    return map(operators.mul, 1.0)(ls)
+    return reduce(operators.mul, 1.0)(ls)

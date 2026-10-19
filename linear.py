@@ -63,7 +63,7 @@ def accuracy(model):
         prediction = 1 if model.forward(x1, x2) > 0 else 0 
         if prediction == y:
             correct += 1
-        return correct / len(points)
+    return correct / len(points)
 
 
 

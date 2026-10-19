@@ -1,3 +1,16 @@
+import pytest
+from hypothesis import given
+from hypothesis.strategies import floats
+
+from operators import add, is_close, lt, mul, neg, sigmoid
+
+small_floats = floats(min_value=-100, max_value=100, allow_nan=False)
+
+
+def assert_close(a: float, b: float) -> None:
+    assert is_close(a, b), "Failure x=%f y=%f" % (a, b)
+
+
 # ## Task 0.2: Property Testing
 
 @pytest.mark.task0_2

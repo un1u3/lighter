@@ -83,9 +83,8 @@ def collect(scalar, seen= None):
     seen.append(scalar)
 
     if scalar.history is not None:
-        backward_fn, left, right = scalar.history
-        collect(left, seen)
-        collect(right, seen)
+        for inp in scalar.history[1:]:
+            collect(inp, seen)
     return seen 
 
 def topological_sort(scalar, seen=None, order=None):

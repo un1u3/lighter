@@ -136,13 +136,6 @@ def product(shape):
         p *= s
     return p
 
-def position_to_index(position, shape, strides):
-    index = []
-    for stride in strides:
-        index.append(position // stride)
-        position = position % stride
-    return tuple(index)
-
 
 
 

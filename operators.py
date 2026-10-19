@@ -23,7 +23,7 @@ def lt(x: float, y:float)->float:
 
 # eq - Checks if two numbers are equal
 def eq(x: float, y:float)->float:
-    return 1.0 if x == y else 0
+    return 1.0 if x == y else 0.0
 
 # max - Returns the larger of two numbers
 def max(x: float, y:float)->float:
@@ -31,10 +31,10 @@ def max(x: float, y:float)->float:
 
 # is_close - Checks if two numbers are close in value
 def is_close(x: float, y: float)-> float:
-    pass
+    return 1.0 if abs(x - y) < 1e-2 else 0.0
 
 # sigmoid - Calculates the sigmoid function
-def sigmoid(x: float, y:float)-> float:
+def sigmoid(x: float)-> float:
     if x>=0:
         return 1.0 / (1.0 + math.exp(-x))
     else:
@@ -50,7 +50,7 @@ def log(x: float)-> float:
 
 # exp - Calculates the exponential function
 def exp(x:float)-> float:
-    return 1.0 / x
+    return math.exp(x)
 
 # inv - Calculates the reciprocal
 def inv(x: float)-> float:

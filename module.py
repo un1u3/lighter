@@ -36,7 +36,7 @@ class Module:
             result.extend(child.parameters())
         return result
     def named_parameters(self):
-        result = []
+        result = list(self.params.items())
         for child_name, child in self.children.items():
             for name, parm in child.named_parameters():     
                 result.append((child_name + "." + name, parm))  
